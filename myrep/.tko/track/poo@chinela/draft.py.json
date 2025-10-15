@@ -1,0 +1,24 @@
+{
+    "patches": [
+        {
+            "label": "2025-10-15_17-16-31",
+            "content": "@@ -220,16 +220,19 @@\n valor   \n+ %3C=\n    %3C= 50\n@@ -236,36 +236,8 @@\n  50:\n-%0A                           \n %0A%0A  \n",
+            "lines": "25"
+        },
+        {
+            "label": "2025-10-15_17-18-32",
+            "content": "@@ -3,16 +3,22 @@\n ass \n-C\n+c\n hinela:\n+      \n %0A   \n@@ -77,16 +77,17 @@\n  def get\n+t\n Tamanho(\n@@ -88,24 +88,32 @@\n manho(self):\n+        \n %0A        ret\n@@ -131,16 +131,20 @@\n tamanho%0A\n+    \n %0A    def\n@@ -170,16 +170,17 @@\n alor: in\n+i\n t):%0A    \n@@ -210,23 +210,29 @@\n nd 20 %3C=\n+ \n  valor \n+     \n %3C= 50:%0A \n@@ -230,24 +230,49 @@\n  %3C= 50:%0A    \n+                       %0A%0A\n         self\n@@ -290,20 +290,16 @@\n = valor%0A\n-    \n     else\n@@ -299,21 +299,23 @@\n    else:\n-%0A\n+  \n     \n+%0A\n         \n@@ -325,11 +325,9 @@\n nt(%22\n-%E2%9D%8C T\n+t\n aman\n@@ -332,17 +332,17 @@\n anho inv\n-%C3%A1\n+a\n lido! Di\n@@ -373,20 +373,25 @@\n  20 e 50\n+%22\n .%22)%0A\n+    \n %0Achinela\n@@ -436,16 +436,17 @@\n () == 0:\n+ \n %0A    pri\n@@ -521,16 +521,18 @@\n input())\n+  \n %0A       \n@@ -661,16 +661,17 @@\n %0Aprint(%22\n+%F0%9F%8E%89\n  Parab%C3%A9n\n@@ -729,9 +729,8 @@\n manho())\n-%0A\n",
+            "lines": "26"
+        },
+        {
+            "label": "2025-10-15_17-25-33",
+            "content": "@@ -272,16 +272,17 @@\n  print(%22\n+%E2%9D%8C\n  Tamanho\n",
+            "lines": "24"
+        },
+        {
+            "label": "2025-10-15_17-34-02",
+            "content": "class Chinela:\n    def __init__(self):\n        self.__tamanho = 0\n\n    def getTamanho(self):\n        return self.__tamanho\n\n    def setTamanho(self, valor: int):\n        if valor % 2 == 0 and 20 <= valor <= 50:\n            self.__tamanho = valor\n        else:\n            print(\" Tamanho inv\u00e1lido! Digite um n\u00famero PAR entre 20 e 50.\")\n\nchinela = Chinela()\n\nwhile chinela.getTamanho() == 0:\n    print(\"Digite seu tamanho de chinela:\")\n    try:\n        tamanho = int(input())\n        chinela.setTamanho(tamanho)\n    except ValueError:\n        print(\"\u26a0\ufe0f Entrada inv\u00e1lida! Digite apenas n\u00fameros inteiros.\")\n\nprint(\" Parab\u00e9ns, voc\u00ea comprou uma chinela tamanho\", chinela.getTamanho())\n",
+            "lines": "24"
+        }
+    ]
+}
