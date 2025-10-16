@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2025-10-16_13-35-09",
+            "content": "class Roupa:\n    def __init__(self):\n        self.__tamanho: str = \"\"  \n\n    def getTamanho(self) -> str:\n        return self.__tamanho\n\n    def setTamanho(self, valor: str):\n        tamanhos_validos = [\"PP\", \"P\", \"M\", \"G\", \"GG\", \"XG\"]\n        if valor.upper() in tamanhos_validos:\n            self.__tamanho = valor.upper()\n        else:\n            print(\" Tamanho inv\u00e1lido!\")\n            print(\"Tamanhos permitidos: PP, P, M, G, GG, XG\")\n\n\nif __name__ == \"__main__\":\n    roupa = Roupa()\n\n    while roupa.getTamanho() == \"\":\n        tamanho = input(\"Digite seu tamanho de roupa (PP, P, M, G, GG, XG): \").strip()\n        roupa.setTamanho(tamanho)\n\n    print(f\" Parab\u00e9ns! Voc\u00ea comprou uma roupa tamanho {roupa.getTamanho()}.\")\n",
+            "lines": "24"
+        }
+    ]
+}
