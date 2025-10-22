@@ -1,0 +1,24 @@
+{
+    "patches": [
+        {
+            "label": "2025-10-21_13-55-35",
+            "content": "@@ -56,13 +56,84 @@\n anho\n- = %22%22\n+: str = %22%22  %0A%0A    def getTamanho(self) -%3E str:%0A        return self.__tamanho\n %0A%0A  \n@@ -160,16 +160,21 @@\n f, valor\n+: str\n ):%0A     \n@@ -184,16 +184,24 @@\n tamanhos\n+_validos\n  = %5B%22PP%22\n@@ -249,12 +249,16 @@\n alor\n- not\n+.upper()\n  in \n@@ -269,568 +269,459 @@\n nhos\n-:%0A            print(%22fail: Valor inv%C3%A1lido, tente PP, P, M, G, GG ou XG%22)%0A            return%0A        self.__tamanho = valor%0A%0A    def __str__(self):%0A        return f%22size: (%7Bself.__tamanho%7D)%22%0A%0A%0Aroupa = Roupa()%0A%0Awhile True:%0A    try:%0A        line = input()%0A    except EOFError:%0A        break%0A%0A    if line == %22$end%22:%0A        break%0A    elif line == %22$show%22:%0A        print(roupa)%0A    elif line.startswith(%22$size%22):%0A        parts = line.split()%0A        if len(parts) == 2:%0A            roupa.setTamanho(parts%5B1%5D)%0A        else:%0A            print(%22fail: informe um t\n+_validos:%0A            self.__tamanho = valor.upper()%0A        else:%0A            print(%22 Tamanho inv%C3%A1lido!%22)%0A            print(%22Tamanhos permitidos: PP, P, M, G, GG, XG%22)%0A%0A%0Aif __name__ == %22__main__%22:%0A    roupa = Roupa()%0A%0A    while roupa.getTamanho() == %22%22:%0A        tamanho = input(%22Digite seu tamanho de roupa (PP, P, M, G, GG, XG): %22).strip()%0A        roupa.setTamanho(tamanho)%0A%0A    print(f%22 Parab%C3%A9ns! Voc%C3%AA comprou uma roupa tamanho %7Broupa.getT\n amanho\n+()%7D.\n %22)%0A\n",
+            "lines": "24"
+        },
+        {
+            "label": "2025-10-21_14-02-36",
+            "content": "@@ -433,17 +433,9 @@\n ut()\n-.strip()\n %0A\n+\n     \n@@ -503,24 +503,26 @@\n   break%0A    \n+el\n if line == %22\n@@ -640,11 +640,12 @@\n ts) \n-%3E 1\n+== 2\n :%0A  \n@@ -695,16 +695,16 @@\n   else:%0A\n+\n         \n@@ -741,9 +741,8 @@\n manho%22)%0A\n-%0A\n",
+            "lines": "33"
+        },
+        {
+            "label": "2025-10-22_02-22-06",
+            "content": "@@ -83,16 +83,17 @@\n ho(self,\n+ \n valor):%0A\n",
+            "lines": "34"
+        },
+        {
+            "label": "2025-10-22_02-23-48",
+            "content": "class Roupa:\n    def __init__(self):\n        self.__tamanho = \"\"\n\n    def setTamanho(self,valor):\n        tamanhos = [\"PP\", \"P\", \"M\", \"G\", \"GG\", \"XG\"]\n        if valor not in tamanhos:\n            print(\"fail: Valor inv\u00e1lido, tente PP, P, M, G, GG ou XG\")\n            return\n        self.__tamanho = valor\n\n    def __str__(self):\n        return f\"size: ({self.__tamanho})\"\n\n\nroupa = Roupa()\n\nwhile True:\n    try:\n        line = input().strip()\n    except EOFError:\n        break\n\n    if line == \"$end\":\n        break\n    if line == \"$show\":\n        print(roupa)\n    elif line.startswith(\"$size\"):\n        parts = line.split()\n        if len(parts) > 1:\n            roupa.setTamanho(parts[1])\n        else:\n            print(\"fail: informe um tamanho\")\n\n",
+            "lines": "34"
+        }
+    ]
+}

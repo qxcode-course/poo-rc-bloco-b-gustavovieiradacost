@@ -1,0 +1,14 @@
+{
+    "patches": [
+        {
+            "label": "2025-10-22_02-35-13",
+            "content": "@@ -1280,56 +1280,8 @@\n %22%0A%0A%0A\n-# %3E%3E%3E O objeto precisa ser criado ANTES do loop%0A\n watc\n@@ -1294,15 +1294,8 @@\n tch(\n-0, 0, 0\n )%0A%0Aw\n@@ -1410,37 +1410,38 @@\n :%0A        break%0A\n-%0A\n     \n+el\n if line == %22$sho\n",
+            "lines": "73"
+        },
+        {
+            "label": "2025-10-22_02-37-09",
+            "content": "class Watch:\n    def __init__(self, hora=0, minuto=0, segundo=0):\n        self.__hora = 0\n        self.__minuto = 0\n        self.__segundo = 0\n        self.setHora(hora)\n        self.setMinuto(minuto)\n        self.setSegundo(segundo)\n\n    def setHora(self, valor):\n        if 0 <= valor <= 23:\n            self.__hora = valor\n        else:\n            print(\"fail: hora invalida\")\n\n    def setMinuto(self, valor):\n        if 0 <= valor <= 59:\n            self.__minuto = valor\n        else:\n            print(\"fail: minuto invalido\")\n\n    def setSegundo(self, valor):\n        if 0 <= valor <= 59:\n            self.__segundo = valor\n        else:\n            print(\"fail: segundo invalido\")\n\n    def getHora(self):\n        return self.__hora\n\n    def getMinuto(self):\n        return self.__minuto\n\n    def getSegundo(self):\n        return self.__segundo\n\n    def nextSecond(self):\n        self.__segundo += 1\n        if self.__segundo == 60:\n            self.__segundo = 0\n            self.__minuto += 1\n            if self.__minuto == 60:\n                self.__minuto = 0\n                self.__hora += 1\n                if self.__hora == 24:\n                    self.__hora = 0\n\n    def __str__(self):\n        return f\"{self.__hora:02d}:{self.__minuto:02d}:{self.__segundo:02d}\"\n\n\n# >>> O objeto precisa ser criado ANTES do loop\nwatch = Watch(0, 0, 0)\n\nwhile True:\n    try:\n        line = input().strip()\n    except EOFError:\n        break\n\n    if line == \"$end\":\n        break\n\n    if line == \"$show\":\n        print(watch)\n    elif line.startswith(\"$set\"):\n        _, h, m, s = line.split()\n        watch.setHora(int(h))\n        watch.setMinuto(int(m))\n        watch.setSegundo(int(s))\n    elif line.startswith(\"$init\"):\n        _, h, m, s = line.split()\n        watch = Watch(int(h), int(m), int(s))\n    elif line == \"$next\":\n        watch.nextSecond()\n",
+            "lines": "75"
+        }
+    ]
+}

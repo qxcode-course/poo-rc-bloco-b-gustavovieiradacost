@@ -1,24 +1,17 @@
 class Roupa:
     def __init__(self):
-        self.__tamanho: str = ""  
+        self.__tamanho = ""
 
-    def getTamanho(self) -> str:
-        return self.__tamanho
+    def setTamanho(self, valor):
+        tamanhos = ["PP", "P", "M", "G", "GG", "XG"]
+        if valor not in tamanhos:
+            print("fail: Valor inválido, tente PP, P, M, G, GG ou XG")
+            return
+        self.__tamanho = valor
 
-    def setTamanho(self, valor: str):
-        tamanhos_validos = ["PP", "P", "M", "G", "GG", "XG"]
-        if valor.upper() in tamanhos_validos:
-            self.__tamanho = valor.upper()
-        else:
-            print(" Tamanho inválido!")
-            print("Tamanhos permitidos: PP, P, M, G, GG, XG")
+    def __str__(self):
+        return f"size: ({self.__tamanho})"
 
 
-if __name__ == "__main__":
-    roupa = Roupa()
+roupa = Roupa()
 
-    while roupa.getTamanho() == "":
-        tamanho = input("Digite seu tamanho de roupa (PP, P, M, G, GG, XG): ").strip()
-        roupa.setTamanho(tamanho)
-
-    print(f" Parabéns! Você comprou uma roupa tamanho {roupa.getTamanho()}.")
