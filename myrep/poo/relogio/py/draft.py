@@ -1,37 +1,50 @@
 class Watch:
-    def __init__(self, hora=0, minuto=0, segundo=0):
+    def _init_(self, hora: int = 0, minuto: int = 0, segundo: int = 0):
         self.__hora = 0
         self.__minuto = 0
         self.__segundo = 0
-        self.setHora(hora)
-        self.setMinuto(minuto)
-        self.setSegundo(segundo)
+        
+        self.setHoras(hora)
+        self.setMin(minuto)
+        self.setSeg(segundo)
+    
+    def getHoras(self):
+        return self.__hora 
 
-    def setHora(self, valor):
-        if 0 <= valor <= 23:
-            self.__hora = valor
+    def getMinutos(self):
+        return self.__minuto 
+
+    def getSegundos(self):
+        return self.__segundo
+    
+    def setHoras(self, h: int):
+        if h >= 0 and h <= 23:
+            self.__hora = h
         else:
             print("fail: hora invalida")
-
-    def setMinuto(self, valor):
-        if 0 <= valor <= 59:
-            self.__minuto = valor
+        
+    def setMin(self, m: int):
+        if m >= 0 and m <=59:
+            self.__minuto = m
         else:
             print("fail: minuto invalido")
 
-    def setSegundo(self, valor):
-        if 0 <= valor <= 59:
-            self.__segundo = valor
+    def setSeg(self, s: int):
+        if s >=0 and s<= 59 :
+            self.__segundo = s
         else:
-            print("fail: segundo invalido")
+            print("fail: segundo invalido")   
+        
+    def nextSecond(self):
+        self.__segundo += 1
+        if self.__segundo > 59:
+            self.__segundo = 0
+            self.__minuto += 1
+        if self.__minuto > 59:
+            self.__minuto = 0
+            self.__hora += 1
+        if self.__hora > 23:
+            self.__hora = 0
 
-    def getHora(self):
-        return self.__hora
-
-    def getMinuto(self):
-        return self.__minuto
-
-    def getSegundo(self):
-        return self.__segundo
-
-    
+    def _str_(self):
+        return f"{self._hora:02d}:{self.minuto:02d}:{self._segundo:02d}"
